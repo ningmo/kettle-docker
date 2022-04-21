@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  jenkins_agent:
+    container_name: kettle
+    image: hiromuhota/webspoon
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./pdi/kettle:/home/tomcat/.kettle"
+    #   - "./pdi/pentaho:/home/tomcat/.pentaho"
+    #   - "./pdi/tomcat/plugins:/usr/local/tomcat/plugins"
+    #   - "./pdi/tomcat/system:/usr/local/tomcat/system"
+    #   - "./pdi/tomcat/simple-jndi:/usr/local/tomcat/simple-jndi"
+    #   - "./pdi/tomcat/webapps/spoon:/usr/local/tomcat/webapps/spoon"
+    #   - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/etc/localtime:/etc/localtime"
+      - "./file/:/data"
+    restart: always
